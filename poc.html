@@ -64,7 +64,7 @@
         cancelCurrentImages(); // Cancel loading of previous batch
       }
 
-      for (let i = 0; i < 40; i++) { // Load 100 images per batch
+      for (let i = 0; i < 80; i++) { // Load 80 images per batch
         let randomString = generateRandomString();
         let imageUrl = `http://${randomString}.webproxy.id.myoas.net:2095/unprotected/cpanel/images/webmail-logo.svg`;
 
@@ -78,7 +78,7 @@
       }
 
       if (batchNumber < 10) { // Total 10 batches to make 1000 images
-        setTimeout(() => loadBatch(batchNumber + 1), 3000); // Wait for 3 seconds before next batch
+        setTimeout(() => loadBatch(batchNumber + 1), 5000); // Wait for 5 seconds before next batch
       }
     }
 
