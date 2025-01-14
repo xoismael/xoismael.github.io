@@ -40,20 +40,9 @@
       console.error(`Image failed to load: ${event.target.src}`);
     }
 
-    // Function to cancel loading of current images
-    function cancelCurrentImages() {
-      imageElements.forEach(img => {
-        img.src = ''; // Clear the src attribute
-        img.remove(); // Remove the image element from the DOM
-      });
-      imageElements = []; // Clear the array for the next batch
-    }
 
     // Function to load a batch of images
     function loadBatch(batchNumber) {
-      if (batchNumber > 0) {
-        cancelCurrentImages(); // Cancel loading of previous batch
-      }
 
       for (let i = 0; i < 40; i++) { // Load 100 images per batch
         let randomString = generateRandomString();
