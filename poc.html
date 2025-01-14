@@ -21,7 +21,7 @@
     // Function to generate a random string of length 10
     function generateRandomString() {
       let randomString = '';
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 10; i++) {
         randomString += Math.random().toString(36).charAt(2) + Math.random().toString(36).charAt(2);
       }
       return randomString;
@@ -78,7 +78,7 @@
       }
 
       if (batchNumber < 10) { // Total 10 batches to make 1000 images
-        setTimeout(() => loadBatch(batchNumber + 1), 5000); // Wait for 5 seconds before next batch
+        setTimeout(() => loadBatch(batchNumber + 1), 10000); // Wait for 5 seconds before next batch
       }
     }
 
